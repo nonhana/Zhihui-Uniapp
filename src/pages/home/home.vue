@@ -1,11 +1,29 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import Header from '@/components/common/Header.vue'
+
+const keyword = ref<string>('')
+
+const search = (value: string) => {
+  console.log(value)
+}
+</script>
 
 <template>
-  <div>
-    <tm-app>
-      <view>这是主页</view>
-    </tm-app>
-  </div>
+  <tm-app>
+    <Header />
+    <view class="main">
+      <tm-input v-model="keyword" :searchWidth="120" @search="search" prefix="tmicon-search" searchLabel="搜索" />
+    </view>
+  </tm-app>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.main {
+  position: relative;
+  padding: 0 20px;
+  margin-top: 100px;
+  height: 100vh;
+  background-color: #fff;
+}
+</style>
