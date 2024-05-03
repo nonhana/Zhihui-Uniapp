@@ -18,7 +18,6 @@ export default defineConfig({
   },
   server: {
     port: 1270,
-    // 选项写法
     proxy: {
       '/pag': {
         target: 'https://cdn.tmui.design',
